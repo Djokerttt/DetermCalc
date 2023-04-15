@@ -28,6 +28,48 @@ class Program {
 		return monomials; // Return the list of monomials
 	}
 
+	// Checks is X lacks coefficient, uses 1 in that case
+	static List<string> fixCoefficients(List<string> input) {
+		// Clone the input
+		List<string> output = new List<string>(input.ConvertAll(x => x));
+		
+		// Loop over the items 
+		for (int i = 0; i < output.Count; i++) {
+			string str = output[i];
+			
+			if (str.StartsWith("-x"))
+			{
+				// Replace "-x" with "-1x"
+				output[i] = "-1" + str.Substring(1);
+			}
+			else if (str.StartsWith("x"))
+			{
+				// Replace "x" with "1x"
+				output[i] = "1" + str;
+			}
+		}
+
+		return output;
+	}
+
+	// Check if some X's lack powers, and use ^1 in that case
+	static List<string> fixPow(List<string> input) {
+		// Clone the input
+		List<string> output = new List<string>(input.ConvertAll(x => x));
+		
+		// Loop over the items
+		for (int i = 0; i < output.Count; i++) {
+			string str = output[i];
+
+			// Check if it has X but has no ^
+			if (str.Contains("x") && !str.Contains("^")) {
+				string newString = String.Concat(str, "^1");
+				output[i] = newString;
+			}
+		}
+
+		return output;
+	}
 
 	// Finds the highest number after ^, and returns it
 	static int findHighestPower(List<string> input) {
@@ -143,6 +185,14 @@ class Program {
 		// Divide numerator to segments (monomials)
 		List<string> numeratorSplit = SplitToMonomials(numerator);
 		List<string> denominatorSplit = SplitToMonomials(denominator);
+
+		// Check if some X's lack coefficients, and add 1 in that case
+		numeratorSplit = fixCoefficients(numeratorSplit);
+		denominatorSplit = fixCoefficients(denominatorSplit);
+
+		// Check if some X's lack powers, and use ^1 in that case
+		numeratorSplit = fixPow(numeratorSplit);
+		denominatorSplit = fixPow(denominatorSplit);
 
 		// Find the highest power in the lists
 		int highestPower = findHighestPower(numeratorSplit);
