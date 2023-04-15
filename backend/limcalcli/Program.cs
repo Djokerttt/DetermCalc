@@ -51,7 +51,7 @@ class Program {
 	}
 	
 	// 1. Find the powers which match the highest one exactly
-	// 2. Turn those items from "3x^5" into "+3"
+	// 2. Turn those items from "3x^5" into "3"
 	// 3. Turn all other items in 0
 	static string finalizeDivision(List<string> input, int inputPow) {
 		// Create a list to hold the output strings
@@ -96,7 +96,39 @@ class Program {
 		string separator = "";
 		string output = string.Join(separator, outputStrings);
 
+		// Remove leading +, if present
+		if (output.StartsWith("+")) {
+			string outputTrimmed = output.TrimStart('+');
+			return outputTrimmed;
+		}
+
 		return output;
+	}
+
+	static int result (string expression) {
+
+		// Split the expression to monomials with + and - as delimiters
+		string[] parts = expression.Split(new[] { "+", "-" }, StringSplitOptions.RemoveEmptyEntries);
+		int resultInt = 0;
+		
+		// Loop over each monomial and add/substract it's value to the result
+		foreach (string part in parts) {
+			int value = int.Parse(part);
+			if (expression.IndexOf(part) == 0)
+			{
+				resultInt += value;
+			}
+			else if (expression[expression.IndexOf(part) - 1] == '+')
+			{
+				resultInt += value;
+			}
+			else if (expression[expression.IndexOf(part) - 1] == '-')
+			{
+				resultInt -= value;
+			}
+		}
+
+		return resultInt;
 	}
 
     static void Main(string[] args) {
@@ -130,8 +162,16 @@ class Program {
 		string numeratorDiv = finalizeDivision(numeratorSplit, highestPower);
 		string denominatorDiv = finalizeDivision(denominatorSplit, highestPower);
 
+		// !!! IMPORTANT !!!
+		// THIS IS THE SECOND OUTPUT OF THE BACKEND, WILL BE USED TO PROCESS THE SOLVING STEPS BY FRONTEND
 		Console.WriteLine(numeratorDiv);
 		Console.WriteLine(denominatorDiv);
+		Console.WriteLine("");
+
+		int numeratorResult = result(numeratorDiv);
+		int denominatorResult = result(denominatorDiv);
+		Console.WriteLine(numeratorResult);
+		Console.WriteLine(denominatorResult);
     }
 }
 
