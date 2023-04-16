@@ -30,7 +30,30 @@ namespace Пределы
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            string textBox1Value = textBox1.Text;
+			string textBox2Value = textBox2.Text;
+
+			string programPath = @"C:\path\to\program.exe";
+			string programArguments = textBox1Value;
+
+			ProcessStartInfo startInfo = new ProcessStartInfo
+			{
+				FileName = programPath,
+				Arguments = programArguments,
+				RedirectStandardOutput = true,
+				UseShellExecute = false,
+				CreateNoWindow = true
+			};
+
+			using (Process process = new Process())
+			{
+				process.StartInfo = startInfo;
+				process.Start();
+				string output = process.StandardOutput.ReadToEnd();
+				process.WaitForExit();
+
+				// handle output as necessary
+			}
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
