@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.equalsButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,25 +44,25 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // equlasButton
+            // button1
             // 
-            this.equlasButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(67)))), ((int)(((byte)(73)))));
-            this.equlasButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(220)))), ((int)(((byte)(201)))));
-            this.equlasButton.FlatAppearance.BorderSize = 3;
-            this.equlasButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
-            this.equlasButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.equlasButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.equlasButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.equlasButton.ForeColor = System.Drawing.Color.White;
-            this.equlasButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.equlasButton.Location = new System.Drawing.Point(964, 147);
-            this.equlasButton.Margin = new System.Windows.Forms.Padding(4);
-            this.equlasButton.Name = "button1";
-            this.equlasButton.Size = new System.Drawing.Size(64, 71);
-            this.equlasButton.TabIndex = 0;
-            this.equlasButton.Text = "=";
-            this.equlasButton.UseVisualStyleBackColor = false;
-            this.equlasButton.Click += new System.EventHandler(this.button1_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(67)))), ((int)(((byte)(73)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(220)))), ((int)(((byte)(201)))));
+            this.button1.FlatAppearance.BorderSize = 3;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(964, 147);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 71);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "=";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
@@ -190,7 +190,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.equlasButton);
+            this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.Yellow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -205,7 +205,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button equlasButton;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Label label1;

@@ -28,7 +28,7 @@ namespace Пределы
 
         }
 
-        private void equalsButton_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             // создаем процесс
             Process process = new Process();
