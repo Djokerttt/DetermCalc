@@ -30,6 +30,7 @@ namespace Пределы
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Равно
             // создаем процесс
             Process process = new Process();
 
@@ -57,12 +58,12 @@ namespace Пределы
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
         {
-			
+			//Ответ
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            //Вывод решения
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -92,12 +93,22 @@ namespace Пределы
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-
+            //Числитель
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            //Знаменатель
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
