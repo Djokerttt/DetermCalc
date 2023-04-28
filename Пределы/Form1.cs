@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Пределы
 {
@@ -32,8 +33,8 @@ namespace Пределы
         {
             //Равно
 			// Берем значения числителя и знаменателя
-			string numerator = textBox4.text;
-			string denominator = textBox2.text;
+			string numerator = textBox4.Text;
+			string denominator = textBox2.Text;
 
 			string args = $"\"{numerator}\" \"{denominator}\"";
 
@@ -51,7 +52,7 @@ namespace Пределы
 
             // получаем выходные данные
             string output = process.StandardOutput.ReadToEnd();
-			richTextBox2.Text = output;
+			richTextBox1.Text = output;
 
             // ожидаем завершения процесса
             process.WaitForExit();
@@ -99,6 +100,7 @@ namespace Пределы
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
+            
             //Числитель
         }
 
