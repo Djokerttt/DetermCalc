@@ -57,12 +57,12 @@
             this.equlasButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.equlasButton.Location = new System.Drawing.Point(964, 147);
             this.equlasButton.Margin = new System.Windows.Forms.Padding(4);
-            this.equlasButton.Name = "button1";
+            this.equlasButton.Name = "equlasButton";
             this.equlasButton.Size = new System.Drawing.Size(64, 71);
             this.equlasButton.TabIndex = 0;
             this.equlasButton.Text = "=";
             this.equlasButton.UseVisualStyleBackColor = false;
-            this.equlasButton.Click += new System.EventHandler(this.button1_Click);
+            this.equlasButton.Click += new System.EventHandler(this.equlasButton_Click);
             // 
             // richTextBox1
             // 
