@@ -31,12 +31,18 @@ namespace Пределы
         private void button1_Click(object sender, EventArgs e)
         {
             //Равно
+			// Берем значения числителя и знаменателя
+			string numerator = textBox4.text;
+			string denominator = textBox2.text;
+
+			string args = $"\"{numerator}\" \"{denominator}\"";
+
             // создаем процесс
             Process process = new Process();
 
             // настраиваем свойства процесса
             process.StartInfo.FileName = "C:\\ConsoleApp1.exe";
-            process.StartInfo.Arguments = "";
+            process.StartInfo.Arguments = args;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
 
