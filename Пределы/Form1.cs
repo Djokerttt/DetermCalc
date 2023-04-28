@@ -44,7 +44,7 @@ namespace Пределы
 
             // получаем выходные данные
             string output = process.StandardOutput.ReadToEnd();
-			richTextBox2_TextChanged.AppendText(output);
+			richTextBox2_TextChanged.Text = output;
 
             // ожидаем завершения процесса
             process.WaitForExit();
