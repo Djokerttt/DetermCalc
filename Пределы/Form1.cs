@@ -17,8 +17,22 @@ namespace Пределы
         public Form1()
         {
             InitializeComponent();
+			SetApplicationFont(this.Controls, new Font("Cascadia Mono", 12, FontStyle.Regular));
         }
-        
+		
+		// Поменять стандартный шрифт
+		private void SetApplicationFont(Control.ControlCollection controls, Font font)
+		{
+			foreach (Control control in controls)
+			{
+				control.Font = font;
+				if (control.Controls.Count > 0)
+				{
+					SetApplicationFont(control.Controls, font);
+				}
+			}
+		}       
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
