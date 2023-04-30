@@ -28,11 +28,11 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:lockguides="true"
-     inkscape:zoom="2.0233293"
-     inkscape:cx="64.250539"
-     inkscape:cy="71.664062"
-     inkscape:window-width="941"
-     inkscape:window-height="1036"
+     inkscape:zoom="1.4307099"
+     inkscape:cx="143.63499"
+     inkscape:cy="219.47147"
+     inkscape:window-width="1920"
+     inkscape:window-height="1060"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -284,27 +284,43 @@
        d="m 82.020833,5.2916665 h 15.875 a 2.6458333,2.6458333 45 0 1 2.645837,2.6458333 V 23.812499 a 2.6458333,2.6458333 135 0 1 -2.645837,2.645834 h -15.875 A 2.6458333,2.6458333 45 0 1 79.375,23.812499 V 7.9374998 a 2.6458333,2.6458333 135 0 1 2.645833,-2.6458333 z"
        sodipodi:type="rect"
        inkscape:label="equals_button" />
-    <text
-       xml:space="preserve"
-       transform="matrix(0.29343253,0,0,0.29343253,-3.479652,1.0734868)"
-       id="text1165"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.222px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1167);display:inline;fill:#eceff4"><tspan
-         x="50.779492"
-         y="45.111752"
-         id="tspan1383">LIM
-</tspan><tspan
-         x="37.758789"
-         y="72.889252"
-         id="tspan1385">x → ∞</tspan></text>
-    <text
-       xml:space="preserve"
-       transform="matrix(0.30480018,0,0,0.30480018,-13.659442,0.2852199)"
-       id="text1175"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1177);display:inline;fill:#eceff4"><tspan
-         x="324.32813"
-         y="69.862809"
-         id="tspan1387">=</tspan></text>
   </g>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.29343254,0,0,0.29343254,-3.479652,1.0734868)"
+     id="text1165"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.222px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1167);display:inline;fill:#eceff4"><tspan
+       x="50.779492"
+       y="45.111752"
+       id="tspan375">LIM
+</tspan><tspan
+       x="37.758789"
+       y="72.889252"
+       id="tspan377">x → ∞</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.24956445,0,0,0.27918064,5.118116,1.6020457)"
+     id="text1175"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1177);display:inline;fill:#eceff4"><tspan
+       x="324.32813"
+       y="69.862809"
+       id="tspan379">=</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.32876667,0,0,0.31985894,-13.352263,-1.7577697)"
+     id="text1153"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1155);display:inline;fill:#eceff4"><tspan
+       x="153.12598"
+       y="44.04264"
+       id="tspan381">2x^2-3x-5</tspan></text>
+  <text
+     xml:space="preserve"
+     transform="matrix(0.32876204,0,0,0.31985442,-15.291116,-4.317012)"
+     id="text1159"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1161);display:inline;fill:#eceff4"><tspan
+       x="164.80371"
+       y="84.755531"
+       id="tspan383">1+x+3x^2</tspan></text>
   <g
      inkscape:groupmode="layer"
      id="layer2"
@@ -332,21 +348,5 @@
        d="m 23.383989,15.243008 38.220605,0 a 2.6458333,2.6458333 45 0 1 2.645833,2.645833 v 2.645833 a 2.6458333,2.6458333 135 0 1 -2.645833,2.645834 l -38.220605,0 a 2.6458333,2.6458333 45 0 1 -2.645834,-2.645834 v -2.645833 a 2.6458333,2.6458333 135 0 1 2.645834,-2.645833 z"
        sodipodi:type="rect"
        inkscape:label="numerator" />
-    <text
-       xml:space="preserve"
-       transform="matrix(0.32876668,0,0,0.31985895,-21.718274,6.8706547)"
-       id="text1153"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1155);display:inline;fill:#eceff4"><tspan
-         x="153.12598"
-         y="44.04264"
-         id="tspan1389">2x^2-3x-5</tspan></text>
-    <text
-       xml:space="preserve"
-       transform="matrix(0.32876203,0,0,0.31985442,-23.657128,4.3114125)"
-       id="text1159"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:'Cascadia Mono';-inkscape-font-specification:'Cascadia Mono';text-align:center;white-space:pre;shape-inside:url(#rect1161);display:inline;fill:#eceff4"><tspan
-         x="164.80371"
-         y="84.755531"
-         id="tspan1391">1+x+3x^2</tspan></text>
   </g>
 </svg>
