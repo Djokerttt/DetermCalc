@@ -12,36 +12,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Пределы
 {
-    public partial class Form1 : Form
+    public partial class LimCalc : Form
     {
-        public Form1()
+        public LimCalc()
         {
             InitializeComponent();
-			SetApplicationFont(this.Controls, new Font("Cascadia Mono", 12, FontStyle.Regular));
-
-			// зафиксировать размер
-			this.MinimumSize = new Size(400, 600);
-			this.MaximumSize = new Size(400, 600);
         }
-		
-		// Поменять стандартный шрифт
-		private void SetApplicationFont(Control.ControlCollection controls, Font font)
-		{
-			foreach (Control control in controls)
-			{
-				control.Font = font;
-				if (control.Controls.Count > 0)
-				{
-					SetApplicationFont(control.Controls, font);
-				}
-			}
-		}       
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
+        /*
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -142,5 +123,6 @@ namespace Пределы
         {
 
         }
+        */
     }
 }
