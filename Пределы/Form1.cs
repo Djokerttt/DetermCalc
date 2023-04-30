@@ -18,6 +18,10 @@ namespace Пределы
         {
             InitializeComponent();
 			SetApplicationFont(this.Controls, new Font("Cascadia Mono", 12, FontStyle.Regular));
+
+			// зафиксировать размер
+			this.MinimumSize = new Size(400, 600);
+			this.MaximumSize = new Size(400, 600);
         }
 		
 		// Поменять стандартный шрифт
