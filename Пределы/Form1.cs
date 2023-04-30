@@ -42,7 +42,7 @@ namespace Пределы
             Process process = new Process();
 
             // настраиваем свойства процесса
-            process.StartInfo.FileName = "C:\\ConsoleApp1.exe";
+            process.StartInfo.FileName = "C:\\LimCalcBackend.exe";
             process.StartInfo.Arguments = args;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
@@ -52,10 +52,16 @@ namespace Пределы
 
             // получаем выходные данные
             string output = process.StandardOutput.ReadToEnd();
-			richTextBox1.Text = output;
 
             // ожидаем завершения процесса
             process.WaitForExit();
+
+            // вывод ответа (временно)
+            string result_output = $"{numerator}\n{denominator}";
+            richTextBox2.Text = result_output;
+
+            richTextBox1.Text = output;
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
