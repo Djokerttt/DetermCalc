@@ -104,28 +104,103 @@ namespace Пределы
             }
 
             // выровняем числитель и знаменатель по длине пробелами
+			string tmpNumerator = numerator;
+			string tmpDenominator = denominator;
             if (numerator.Length < maxLengthProblem)
             {
-                numerator = numerator.PadRight(maxLengthProblem);
+            	tmpNumerator = tmpNumerator.PadRight(maxLengthProblem);
             }
             else if (denominator.Length < maxLengthProblem)
             {
-                denominator = denominator.PadRight(maxLengthProblem);
+                tmpDenominator = tmpDenominator.PadRight(maxLengthProblem);
             }
 			
 			// компенсируем для " = " в separator
-            numerator += "   " + answerNumerator;
-            denominator += "   " + answerDenominator;
+            tmpNumerator += "   " + answerNumerator;
+            tmpDenominator += "   " + answerDenominator;
 
 			// Выводим ответ
-            string result_output = $"{numerator}\r\n{separator}\r\n{denominator}";
+            string result_output = $"{tmpNumerator}\r\n{separator}\r\n{tmpDenominator}";
             answerBox.Text = result_output;
 			///////////////////////////////////////
 			
 			///////////////////////////////////////
 			///////// Вывод шагов решения /////////
 			///////////////////////////////////////
-            solvingStepsBox.Text = output;
+			//// Выводим первый шаг, деление числителя и знаменателя на наибольшую степень
+			// Взять наибольшую степень из output
+            string largestPow = lines[0].TrimEnd();
+
+			//// Выводим в таком порядке:
+			/* 5 пробелов + Числитель
+			 * 5 пробелов + Дробь в ширину числителя
+			 * 5 пробелов + x^$largestPow
+			 * "lim" + пробел + дробь в ширину самого широкого числителя/знаменателя + 2x"-" + " ="
+			 * "x→∞" + 2 пробела + знаменатель
+			 * 5 пробелов + дробь в ширину знаменателя
+			 * 5 пробелов + x^$largestPow */
+
+			/// Пункт 1
+			string tmpoutput = $"     {numerator}\r\n"
+			solvingStepsBox.AppendText(tmpoutput);
+
+			/// Пункт 2
+			// Создаем дробь в ширину числителя
+			separator = "";
+            for (int i = 0; i < numerator.Length; i++)
+            {
+                separator += "-";
+            }
+			tmpoutput = $"     {separator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+			
+			/// Пункт 3
+			if (largestPow == "1")
+			{
+				tmpoutput = $"     x\r\n";
+				solvingStepsBox.AppendText(tmpoutput);
+			}
+			else
+			{
+				tmpoutput = $"     x^{largestPow}\r\n";
+				solvingStepsBox.AppendText(tmpoutput);
+			}
+
+			/// Пункт 4
+			// Ищем что длиннее, числитель или знаменатель, и подгоняем длину полосы под количество символов
+			separator = "";
+            for (int i = 0; i < maxLengthProblem; i++)
+            {
+                separator += "-";
+            }
+			tmpoutput = $"lim -{separator}- =\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+
+			/// Пункт 5
+			tmpoutput = $"x→∞  {denominator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+			
+			/// Пункт 6
+			// Создаем дробь в ширину знаменателя
+			separator = "";
+            for (int i = 0; i < denominator.Length; i++)
+            {
+                separator += "-";
+            }
+			tmpoutput = $"     {separator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+
+			/// Пункт 7
+			if (largestPow == "1")
+			{
+				tmpoutput = $"     x\r\n";
+				solvingStepsBox.AppendText(tmpoutput);
+			}
+			else
+			{
+				tmpoutput = $"     x^{largestPow}\r\n";
+				solvingStepsBox.AppendText(tmpoutput);
+			}
         }
     }
 }
