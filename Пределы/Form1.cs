@@ -141,7 +141,7 @@ namespace Пределы
 			 * 5 пробелов + x^$largestPow */
 
 			/// Пункт 1
-			string tmpoutput = $"     {numerator}\r\n"
+			string tmpoutput = $"     {numerator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
 			/// Пункт 2
