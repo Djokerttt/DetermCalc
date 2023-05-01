@@ -12,50 +12,43 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Пределы
 {
-    public partial class Form1 : Form
+    public partial class LimCalc : Form
     {
-        public Form1()
+        public LimCalc()
         {
             InitializeComponent();
-			SetApplicationFont(this.Controls, new Font("Cascadia Mono", 12, FontStyle.Regular));
         }
-		
-		// Поменять стандартный шрифт
-		private void SetApplicationFont(Control.ControlCollection controls, Font font)
-		{
-			foreach (Control control in controls)
-			{
-				control.Font = font;
-				if (control.Controls.Count > 0)
-				{
-					SetApplicationFont(control.Controls, font);
-				}
-			}
-		}       
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        // наибольший общий делитель
+        static int Gcd(int a, int b)
         {
-
+            if (b == 0)
+            {
+                return a;
+            }
+            else
+            {
+                return Gcd(b, a % b);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void equals_button_Click(object sender, EventArgs e)
         {
-            //Равно
-			// Берем значения числителя и знаменателя
-			string numerator = textBox4.Text;
-			string denominator = textBox2.Text;
+            // Нажатие по кнопке равно
+            // Получаем значения числителя и знаменателя и записываем в удобоваримый для бекенда вид
+            string numerator = numeratorInput.Text;
+            string denominator = denominatorInput.Text;
 
-			string args = $"\"{numerator}\" \"{denominator}\"";
+            string args = $"\"{numerator}\" \"{denominator}\"";
 
             // создаем процесс
             Process process = new Process();
 
-            // настраиваем свойства процесса
+            // Свойства процесса
             process.StartInfo.FileName = "C:\\LimCalcBackend.exe";
             process.StartInfo.Arguments = args;
             process.StartInfo.UseShellExecute = false;
@@ -70,73 +63,62 @@ namespace Пределы
             // ожидаем завершения процесса
             process.WaitForExit();
 
-            // вывод ответа (временно)
-            string result_output = $"{numerator}\n{denominator}";
-            richTextBox2.Text = result_output;
+            // вывод ответа в answerBox
 
-            richTextBox1.Text = output;
+            string[] lines = output.Split('\n');
+            string answerNumerator = lines[lines.Length - 3].TrimEnd();
+            string answerDenominator = lines[lines.Length - 2].TrimEnd();
 
-        }
+            // Упростить числитель и знаменатель
+            int tmp1 = int.Parse(answerNumerator);
+            int tmp2 = int.Parse(answerDenominator);
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            // наибольший общий делитель
+            int gcd = Gcd(tmp1, tmp2);
+            tmp1 /= gcd;
+            tmp2 /= gcd;
 
-        }
+            answerNumerator = tmp1.ToString();
+            answerDenominator = tmp2.ToString();
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-			//Ответ
-        }
+            // создать separator 1
+            string separator = "";
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            //Вывод решения
-        }
+            int maxLengthProblem = Math.Max(numerator.Length, denominator.Length);
 
-        private void label3_Click(object sender, EventArgs e)
-        {
+            for (int i = 0; i < maxLengthProblem; i++)
+            {
+                separator += "-";
+            }
+            separator += " = ";
 
-        }
+            // создать separator 2
+            int maxLengthAnswer = Math.Max(answerNumerator.Length, answerDenominator.Length);
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-           
-        }
+            for (int i = 0; i < maxLengthAnswer; i++)
+            {
+                separator += "-";
+            }
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
+            // выровнять числитель и знаменатель по длине
 
-        }
+            if (numerator.Length < maxLengthProblem)
+            {
+                numerator = numerator.PadRight(maxLengthProblem);
+            }
+            else if (denominator.Length < maxLengthProblem)
+            {
+                denominator = denominator.PadRight(maxLengthProblem);
+            }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
+            numerator += "   " + answerNumerator;
+            denominator += "   " + answerDenominator;
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
 
-        }
+            string result_output = $"{numerator}\r\n{separator}\r\n{denominator}";
+            answerBox.Text = result_output;
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            
-            //Числитель
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
-        {
-            //Знаменатель
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
+            solvingStepsBox.Text = output;
         }
     }
 }
