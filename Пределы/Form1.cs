@@ -228,7 +228,7 @@ namespace Пределы
 			solvingStepsBox.AppendText(tmpoutput);
 
 			/// Пункт 3
-			tmpoutput = $"x→∞  {denominator}\r\n";
+			tmpoutput = $"x→∞  {intermDenominator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
 			solvingStepsBox.AppendText("\r\n");
