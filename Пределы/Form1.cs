@@ -38,13 +38,15 @@ namespace Пределы
 
         private void equals_button_Click(object sender, EventArgs e)
         {
-            // Нажатие по кнопке равно
+            //// Нажатие по кнопке равно
             // Получаем значения числителя и знаменателя и записываем в удобоваримый для бекенда вид
             string numerator = numeratorInput.Text;
             string denominator = denominatorInput.Text;
-
             string args = $"\"{numerator}\" \"{denominator}\"";
-
+			
+			///////////////////////////////////////
+			////////// Работа с бекендом //////////
+			////////////////////////////////////////
             // создаем процесс
             Process process = new Process();
 
@@ -62,46 +64,46 @@ namespace Пределы
 
             // ожидаем завершения процесса
             process.WaitForExit();
+			////////////////////////////////////////
 
-            // вывод ответа в answerBox
-
+			///////////////////////////////////////
+            ////// вывод ответа в answerBox ///////
+			///////////////////////////////////////
+			// Работаем с двумя последними строками вывода
             string[] lines = output.Split('\n');
             string answerNumerator = lines[lines.Length - 3].TrimEnd();
             string answerDenominator = lines[lines.Length - 2].TrimEnd();
 
-            // Упростить числитель и знаменатель
+            /// Упростим числитель и знаменатель
             int tmp1 = int.Parse(answerNumerator);
             int tmp2 = int.Parse(answerDenominator);
-
             // наибольший общий делитель
             int gcd = Gcd(tmp1, tmp2);
             tmp1 /= gcd;
             tmp2 /= gcd;
-
             answerNumerator = tmp1.ToString();
             answerDenominator = tmp2.ToString();
 
-            // создать separator 1
+
+            /// создать separator (знак деления)
             string separator = "";
 
+			// Ищем что длиннее, числитель или знаменатель, и подгоняем длину полосы под количество символов
             int maxLengthProblem = Math.Max(numerator.Length, denominator.Length);
-
             for (int i = 0; i < maxLengthProblem; i++)
             {
                 separator += "-";
             }
             separator += " = ";
 
-            // создать separator 2
+            // создаем часть уровнения после равно
             int maxLengthAnswer = Math.Max(answerNumerator.Length, answerDenominator.Length);
-
             for (int i = 0; i < maxLengthAnswer; i++)
             {
                 separator += "-";
             }
 
-            // выровнять числитель и знаменатель по длине
-
+            // выровняем числитель и знаменатель по длине пробелами
             if (numerator.Length < maxLengthProblem)
             {
                 numerator = numerator.PadRight(maxLengthProblem);
@@ -110,14 +112,19 @@ namespace Пределы
             {
                 denominator = denominator.PadRight(maxLengthProblem);
             }
-
+			
+			// компенсируем для " = " в separator
             numerator += "   " + answerNumerator;
             denominator += "   " + answerDenominator;
 
-
+			// Выводим ответ
             string result_output = $"{numerator}\r\n{separator}\r\n{denominator}";
             answerBox.Text = result_output;
-
+			///////////////////////////////////////
+			
+			///////////////////////////////////////
+			///////// Вывод шагов решения /////////
+			///////////////////////////////////////
             solvingStepsBox.Text = output;
         }
     }
