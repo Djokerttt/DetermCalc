@@ -232,6 +232,23 @@ namespace Пределы
 			solvingStepsBox.AppendText(tmpoutput);
 
 			solvingStepsBox.AppendText("\r\n");
+
+
+			//// Выводим третий шаг, просто ответ
+			tmpoutput = $"{answerNumerator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+
+			// Дробь в ширину самого длинного элемента
+			separator = "";
+            for (int i = 0; i < maxLengthAnswer; i++)
+            {
+                separator += "-";
+            }
+			tmpoutput = $"{separator}\r\n";
+
+			tmpoutput = $"{answerDenominator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+			///////////////////////////////////////
         }
     }
 }
