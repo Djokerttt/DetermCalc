@@ -245,6 +245,7 @@ namespace Пределы
                 separator += "-";
             }
 			tmpoutput = $"{separator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
 
 			tmpoutput = $"{answerDenominator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
