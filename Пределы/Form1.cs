@@ -168,12 +168,12 @@ namespace Пределы
 
 			/// Пункт 4
 			// Ищем что длиннее, числитель или знаменатель, и подгоняем длину полосы под количество символов
-			separator = "";
+			string wideSeparator = "";
             for (int i = 0; i < maxLengthProblem; i++)
             {
-                separator += "-";
+                wideSeparator += "-";
             }
-			tmpoutput = $"lim -{separator}- =\r\n";
+			tmpoutput = $"lim -{wideSeparator}- =\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
 			/// Пункт 5
@@ -190,7 +190,7 @@ namespace Пределы
 			tmpoutput = $"     {separator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
-			/// Пункт 7
+			/// Пункт 7 (то же самое что пункт 3)
 			if (largestPow == "1")
 			{
 				tmpoutput = $"     x\r\n";
@@ -201,6 +201,37 @@ namespace Пределы
 				tmpoutput = $"     x^{largestPow}\r\n";
 				solvingStepsBox.AppendText(tmpoutput);
 			}
+			solvingStepsBox.AppendText("\r\n");
+
+			//// Выводим второй шаг, промежуточный результат после деления, что стало 0
+			/// Выводим в таком порядке:
+			/* 5 пробелов + промежуточный числитель
+			 * "lim" + пробел + дробь в ширину самого широкого числителя/знаменателя + 2x"-" + " ="
+			 * "x→∞" + 2 пробела + промежуточный знаменатель */
+
+            string intermNumerator = lines[2].TrimEnd();
+            string intermDenominator = lines[3].TrimEnd();
+			
+			/// Пункт 1
+			tmpoutput = $"     {intermNumerator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+
+			/// Пункт 2
+			// Ищем что длиннее, числитель или знаменатель, и подгоняем длину полосы под количество символов
+			wideSeparator = "";
+            int maxLengthInterm = Math.Max(intermNumerator.Length, intermDenominator.Length);
+            for (int i = 0; i < maxLengthInterm; i++)
+            {
+                wideSeparator += "-";
+            }
+			tmpoutput = $"lim -{wideSeparator}- =\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+
+			/// Пункт 3
+			tmpoutput = $"x→∞  {denominator}\r\n";
+			solvingStepsBox.AppendText(tmpoutput);
+
+			solvingStepsBox.AppendText("\r\n");
         }
     }
 }
