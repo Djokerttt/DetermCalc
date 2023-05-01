@@ -33,8 +33,10 @@
             this.equals_button = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.numerator = new System.Windows.Forms.TextBox();
-            this.denominator = new System.Windows.Forms.TextBox();
+            this.numeratorInput = new System.Windows.Forms.TextBox();
+            this.denominatorInput = new System.Windows.Forms.TextBox();
+            this.answerBox = new System.Windows.Forms.TextBox();
+            this.solvingStepsBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equals_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -89,42 +91,66 @@
             this.pictureBox5.TabStop = false;
             this.pictureBox5.WaitOnLoad = true;
             // 
-            // numerator
+            // numeratorInput
             // 
-            this.numerator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(76)))), ((int)(((byte)(94)))));
-            this.numerator.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numerator.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.numerator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
-            this.numerator.Location = new System.Drawing.Point(115, 29);
-            this.numerator.Margin = new System.Windows.Forms.Padding(0);
-            this.numerator.MaximumSize = new System.Drawing.Size(155, 20);
-            this.numerator.MaxLength = 16;
-            this.numerator.MinimumSize = new System.Drawing.Size(155, 20);
-            this.numerator.Name = "numerator";
-            this.numerator.Size = new System.Drawing.Size(155, 20);
-            this.numerator.TabIndex = 5;
-            this.numerator.Text = "2x^2-3x-5";
-            this.numerator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numerator.WordWrap = false;
-            this.numerator.TextChanged += new System.EventHandler(this.numerator_TextChanged);
+            this.numeratorInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(76)))), ((int)(((byte)(94)))));
+            this.numeratorInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numeratorInput.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.numeratorInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
+            this.numeratorInput.Location = new System.Drawing.Point(115, 29);
+            this.numeratorInput.Margin = new System.Windows.Forms.Padding(0);
+            this.numeratorInput.MaximumSize = new System.Drawing.Size(155, 20);
+            this.numeratorInput.MaxLength = 16;
+            this.numeratorInput.MinimumSize = new System.Drawing.Size(155, 20);
+            this.numeratorInput.Name = "numeratorInput";
+            this.numeratorInput.Size = new System.Drawing.Size(155, 19);
+            this.numeratorInput.TabIndex = 5;
+            this.numeratorInput.Text = "2x^2-3x-5";
+            this.numeratorInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numeratorInput.WordWrap = false;
             // 
-            // denominator
+            // denominatorInput
             // 
-            this.denominator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(76)))), ((int)(((byte)(94)))));
-            this.denominator.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.denominator.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.denominator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
-            this.denominator.Location = new System.Drawing.Point(115, 68);
-            this.denominator.Margin = new System.Windows.Forms.Padding(0);
-            this.denominator.MaximumSize = new System.Drawing.Size(155, 20);
-            this.denominator.MaxLength = 16;
-            this.denominator.MinimumSize = new System.Drawing.Size(155, 20);
-            this.denominator.Name = "denominator";
-            this.denominator.Size = new System.Drawing.Size(155, 20);
-            this.denominator.TabIndex = 6;
-            this.denominator.Text = "1+x+3x^2";
-            this.denominator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.denominator.WordWrap = false;
+            this.denominatorInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(76)))), ((int)(((byte)(94)))));
+            this.denominatorInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.denominatorInput.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.denominatorInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
+            this.denominatorInput.Location = new System.Drawing.Point(115, 68);
+            this.denominatorInput.Margin = new System.Windows.Forms.Padding(0);
+            this.denominatorInput.MaximumSize = new System.Drawing.Size(155, 20);
+            this.denominatorInput.MaxLength = 16;
+            this.denominatorInput.MinimumSize = new System.Drawing.Size(155, 20);
+            this.denominatorInput.Name = "denominatorInput";
+            this.denominatorInput.Size = new System.Drawing.Size(155, 19);
+            this.denominatorInput.TabIndex = 6;
+            this.denominatorInput.Text = "1+x+3x^2";
+            this.denominatorInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.denominatorInput.WordWrap = false;
+            // 
+            // answerBox
+            // 
+            this.answerBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.answerBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.answerBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
+            this.answerBox.Location = new System.Drawing.Point(25, 125);
+            this.answerBox.Multiline = true;
+            this.answerBox.Name = "answerBox";
+            this.answerBox.ReadOnly = true;
+            this.answerBox.Size = new System.Drawing.Size(350, 70);
+            this.answerBox.TabIndex = 7;
+            this.answerBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // solvingStepsBox
+            // 
+            this.solvingStepsBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
+            this.solvingStepsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.solvingStepsBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(239)))), ((int)(((byte)(244)))));
+            this.solvingStepsBox.Location = new System.Drawing.Point(25, 225);
+            this.solvingStepsBox.Multiline = true;
+            this.solvingStepsBox.Name = "solvingStepsBox";
+            this.solvingStepsBox.ReadOnly = true;
+            this.solvingStepsBox.Size = new System.Drawing.Size(350, 350);
+            this.solvingStepsBox.TabIndex = 8;
             // 
             // LimCalc
             // 
@@ -132,8 +158,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(400, 599);
-            this.Controls.Add(this.denominator);
-            this.Controls.Add(this.numerator);
+            this.Controls.Add(this.solvingStepsBox);
+            this.Controls.Add(this.answerBox);
+            this.Controls.Add(this.denominatorInput);
+            this.Controls.Add(this.numeratorInput);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.equals_button);
@@ -166,8 +194,10 @@
         private System.Windows.Forms.PictureBox equals_button;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox numerator;
-        private System.Windows.Forms.TextBox denominator;
+        private System.Windows.Forms.TextBox numeratorInput;
+        private System.Windows.Forms.TextBox denominatorInput;
+        private System.Windows.Forms.TextBox answerBox;
+        private System.Windows.Forms.TextBox solvingStepsBox;
     }
 }
 
