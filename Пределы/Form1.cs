@@ -237,7 +237,7 @@ namespace Пределы
 			// answerX - то что вывел бекенд, когда просто numerator и denominator - то что ввёл юзер
             string answerNumerator = lines[lines.Length - 3].TrimEnd();
             string answerDenominator = lines[lines.Length - 2].TrimEnd();
-			printToAnswerBox(numerator, denominator, lines);
+			printToAnswerBox(numerator, denominator, answerNumerator, answerDenominator);
 
 			//// Выводим шаги решения в solvingStepsBox
 			// Выводим первый шаг, деление числителя и знаменателя на наибольшую степень
