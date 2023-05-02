@@ -101,7 +101,7 @@ namespace Пределы
             }
 
             // создаем часть уровнения после равно
-			separator += fitSeparator(answerNumerator, answerDenominator, separator);
+			separator = fitSeparator(answerNumerator, answerDenominator, separator);
 			
 			// компенсируем для " = " в separator и добавляем ответ
             numerator += "   " + answerNumerator;
@@ -209,7 +209,7 @@ namespace Пределы
 			solvingStepsBox.AppendText(tmpoutput);
 
 			// Дробь в ширину самого длинного элемента
-			string separator = "";
+			string separator = "-";
 			fitSeparator(numerator, denominator, separator);
 			tmpoutput = $"{separator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
