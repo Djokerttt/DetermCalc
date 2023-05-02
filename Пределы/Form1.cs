@@ -146,7 +146,8 @@ namespace Пределы
 
 			/// Пункт 2
 			// Создаем дробь в ширину числителя
-			string separator = fitSeparator(numerator, 0);
+			string separator = "";
+			separator = fitSeparator(numerator, "0", separator);
 			tmpoutput = $"     {separator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 			
@@ -155,7 +156,7 @@ namespace Пределы
 
 			/// Пункт 4
 			// Создаем дробь посередине
-			separator = fitSeparator(numerator, denominator);
+			separator = fitSeparator(numerator, denominator, "");
 			tmpoutput = $"lim -{separator}- =\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
@@ -165,7 +166,7 @@ namespace Пределы
 			
 			/// Пункт 6
 			// Создаем дробь в ширину знаменателя
-			separator = fitSeparator(0, denominator);
+			separator = fitSeparator("0", denominator, "");
 			tmpoutput = $"     {separator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
@@ -190,7 +191,8 @@ namespace Пределы
 
 			/// Пункт 2
 			// Ищем что длиннее, числитель или знаменатель, и подгоняем длину полосы под количество символов
-			string separator = fitSeparator(numerator, denominator);
+			string separator = ""; 
+			separator = fitSeparator(numerator, denominator, separator);
 			tmpoutput = $"lim -{separator}- =\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
@@ -207,7 +209,8 @@ namespace Пределы
 			solvingStepsBox.AppendText(tmpoutput);
 
 			// Дробь в ширину самого длинного элемента
-			string separator = fitSeparator(numerator, denominator);
+			string separator = "";
+			fitSeparator(numerator, denominator, separator);
 			tmpoutput = $"{separator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
