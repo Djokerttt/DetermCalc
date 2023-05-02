@@ -91,21 +91,21 @@ namespace Пределы
             separator += " = ";
 
             // Выровняем числитель и знаменатель по длине пробелами
-            if (numerator.Length < maxLengthProblem)
+            if (numerator.Length < denominator.Length)
             {
-            	numerator = numerator.PadRight(maxLengthProblem);
+            	numerator = numerator.PadRight(denominator.Length);
             }
-            else if (denominator.Length < maxLengthProblem)
+            else if (denominator.Length < numerator.Length)
             {
-                denominator = denominator.PadRight(maxLengthProblem);
+                denominator = denominator.PadRight(denominator.Length);
             }
 
             // создаем часть уровнения после равно
 			separator += fitSeparator(answerNumerator, answerDenominator, separator);
 			
 			// компенсируем для " = " в separator и добавляем ответ
-            numerator += "   " + answernumerator;
-            denominator += "   " + answerdenominator;
+            numerator += "   " + answerNumerator;
+            denominator += "   " + answerDenominator;
 
 			// Выводим ответ
             string result_output = $"{numerator}\r\n{separator}\r\n{denominator}";
@@ -224,7 +224,7 @@ namespace Пределы
             string args = $"\"{numerator}\" \"{denominator}\"";
 			
 			// Запускаем бекенд, получаем вывод в output
-			string output = runBackend(args)
+			string output = runBackend(args);
 
 			// Разделяем вывод бекенда на строки 
             string[] lines = output.Split('\n');
