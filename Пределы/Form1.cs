@@ -116,12 +116,12 @@ namespace Пределы
 		{
 			if (largestPow == "1")
 			{
-				tmpoutput = $"     x\r\n";
+				string tmpoutput = $"     x\r\n";
 				solvingStepsBox.AppendText(tmpoutput);
 			}
 			else
 			{
-				tmpoutput = $"     x^{largestPow}\r\n";
+				string tmpoutput = $"     x^{largestPow}\r\n";
 				solvingStepsBox.AppendText(tmpoutput);
 			}
 		}
@@ -185,12 +185,12 @@ namespace Пределы
             string denominator = lines[3].TrimEnd();
 			
 			/// Пункт 1
-			tmpoutput = $"     {numerator}\r\n";
+			string tmpoutput = $"     {numerator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
 			/// Пункт 2
 			// Ищем что длиннее, числитель или знаменатель, и подгоняем длину полосы под количество символов
-			separator = fitSeparator(numerator, denominator);
+			string separator = fitSeparator(numerator, denominator);
 			tmpoutput = $"lim -{separator}- =\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
@@ -203,11 +203,11 @@ namespace Пределы
 
 		static void printToSolvingStepsThird(string numerator, string denominator)
 		{
-			tmpoutput = $"{numerator}\r\n";
+			string tmpoutput = $"{numerator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
 			// Дробь в ширину самого длинного элемента
-			separator = fitSeparator(numerator, denominator);
+			string separator = fitSeparator(numerator, denominator);
 			tmpoutput = $"{separator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
 
