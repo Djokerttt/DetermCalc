@@ -72,7 +72,7 @@ namespace Пределы
 			return separator;
 		}
 
-		static void printToAnswerBox(string numerator, string denominator, string answerNumerator, string answerDenominator)
+		public void printToAnswerBox(string numerator, string denominator, string answerNumerator, string answerDenominator)
 		{
             /// Упростим числитель и знаменатель, разделив оба на наибольший общий делитель (gcd)
             int tmp1 = int.Parse(answerNumerator);
@@ -112,7 +112,7 @@ namespace Пределы
             answerBox.Text = result_output;
 		}
 
-		static void divideByX(string largestPow)
+		public void divideByX(string largestPow)
 		{
 			if (largestPow == "1")
 			{
@@ -126,7 +126,7 @@ namespace Пределы
 			}
 		}
 
-		static void printToSolvingStepsFirst(string numerator, string denominator, string[] lines)
+		public void printToSolvingStepsFirst(string numerator, string denominator, string[] lines)
 		{
 			// Взять наибольшую степень из output
             string largestPow = lines[0].TrimEnd();
@@ -175,7 +175,7 @@ namespace Пределы
 			solvingStepsBox.AppendText("\r\n");
 		}
 
-		static void printToSolvingStepsSecond(string[] lines)
+		public void printToSolvingStepsSecond(string[] lines)
 		{
 			/// Выводим в таком порядке:
 			/* 5 пробелов + промежуточный числитель
@@ -203,7 +203,7 @@ namespace Пределы
 			solvingStepsBox.AppendText("\r\n");
 		}
 
-		static void printToSolvingStepsThird(string numerator, string denominator)
+		public void printToSolvingStepsThird(string numerator, string denominator)
 		{
 			string tmpoutput = $"{numerator}\r\n";
 			solvingStepsBox.AppendText(tmpoutput);
