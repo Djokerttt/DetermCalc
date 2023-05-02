@@ -97,7 +97,7 @@ namespace Пределы
             }
             else if (denominator.Length < numerator.Length)
             {
-                denominator = denominator.PadRight(denominator.Length);
+                denominator = denominator.PadRight(numerator.Length);
             }
 
             // создаем часть уровнения после равно
